@@ -1,0 +1,149 @@
+@import "../fonts/Evgenia/stylesheet.css";
+@import "../fonts/Roboto/stylesheet.css";
+
+:root {
+    --white: #FFFFFF;
+    --black: #000000;
+    --green: #5F9988;
+    --red: #D28080;
+    --gray: #2C2A36;
+
+    --gap: 20px;
+
+    --header-index: 1000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: ft-evgenia-deco;
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+a {
+    color: unset;
+    text-decoration: none;
+}
+
+.containter {
+    max-width: 1040px;
+    margin-inline: auto;
+    padding-inline: var(--gap);
+}
+
+.app {
+    min-height: 100dvh;
+    min-width: 100dvw;
+
+    --accent-color: var(--green);
+    --background-color: var(--white);
+    --text-color: var(--black);
+}
+
+.app:has(.header>.header__theme-buttons>#theme:checked) {
+    --accent-color: var(--red);
+    --background-color: var(--black);
+    --text-color: var(--white);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+
+    width: 632px;
+    padding: var(--gap);
+
+    border: black 2px solid;
+    color: var(--accent-color);
+    background-color: var(--background-color);
+
+    position: fixed;
+    top: 0;
+    left: 50dvw;
+    transform: translateX(-50%);
+    z-index: var(--header-index);
+
+    transition: color .2s ease,
+                background-color .2s ease,
+                opacity .3s ease;
+}
+
+.header__menu-btn {
+    user-select: none;
+    font-family: ft-roboto;
+
+    &:has(#menu-switcher:checked)~.nav {
+        padding-block: var(--gap);
+        height: auto;
+    }
+}
+
+#menu-switcher {
+    display: none;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+
+
+    padding: 0;
+
+    height: 0;
+    overflow: hidden;
+
+    position: absolute;
+    top: 100%;
+}
+
+.header__theme-buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: calc(var(--gap) / 2);
+
+    user-select: none;
+    font-family: ft-roboto;
+
+    &>.header__icons>.fa-moon {
+        color: var(--text-color);
+        opacity: 50%;
+    }
+
+    &:has(#theme:checked)>.header__icons {
+        &>.fa-moon {
+            color: var(--accent-color);
+            opacity: 100%;
+        }
+
+        &>.fa-sun {
+            color: var(--text-color);
+            opacity: 50%;
+        }
+    }
+}
+
+#theme {
+    display: none;
+}
+
+.start {
+    color: var(--text-color);
+}
