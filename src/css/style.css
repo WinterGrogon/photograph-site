@@ -57,7 +57,7 @@ a {
 
 .app:has(.header>.header__theme-buttons>#theme:checked) {
     --accent-color: var(--red);
-    --background-color: var(--black);
+    --background-color: var(--gray);
     --text-color: var(--white);
 }
 
@@ -185,5 +185,5 @@ a {
     padding: var(--grid-gap);
 
     background-color: var(--accent-color);
-    border: var(--grid-gap) var(--text-color) solid;
+    border: var(--grid-gap) var(--black) solid;
 }
