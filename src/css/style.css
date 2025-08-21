@@ -21,7 +21,11 @@
 
 html {
     font-family: ft-evgenia-deco;
-    font-size: 20px;
+    font-size: 30px;
+}
+
+section {
+    margin-bottom: 200px;
 }
 
 h1 {
@@ -41,7 +45,15 @@ a {
     text-decoration: none;
 }
 
-.containter {
+img {
+    max-width: 100%;
+}
+
+li {
+    list-style-type: none;
+}
+
+.container {
     max-width: 1040px;
     margin-inline: auto;
     padding-inline: var(--gap);
@@ -186,4 +198,57 @@ a {
 
     background-color: var(--accent-color);
     border: var(--grid-gap) var(--black) solid;
+}
+
+.services__cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+}
+
+.services__card {
+    width: calc(50% - var(--gap) / 2);
+    aspect-ratio: 937 / 643;
+
+    &:hover > .services__card-content {
+        transform: rotateY(180deg);
+    }
+}
+
+.services__card-content {
+    width: 100%;
+    height: 100%;
+    
+    
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .2s ease;
+}
+
+.services__card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+    border: calc(var(--gap) / 2) var(--accent-color) solid;
+    backface-visibility: hidden;
+    
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
+
+.services__card-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border: calc(var(--gap) / 2) var(--text-color) solid;
+    background-color: var(--accent-color);
+    backface-visibility: hidden;
+    font-weight: 400;
+
+    position: absolute;
+    inset: 0;
+    transform: rotateY(180deg);
 }
