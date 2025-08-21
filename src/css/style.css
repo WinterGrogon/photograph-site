@@ -24,7 +24,11 @@ html {
     font-size: 30px;
 }
 
-section {
+body > .app {
+    background-color: var(--background-color);
+}
+
+main > section:not(:last-of-type) {
     margin-bottom: 200px;
 }
 
@@ -167,8 +171,6 @@ li {
     grid-auto-flow: column;
 
     padding-inline: var(--gap);
-    
-    background-color: var(--background-color);
 }
 
 .start__image {
